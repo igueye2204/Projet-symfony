@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container zone-entete ">
+        <div class="container text-center pt-3 info">Numero Chambre</div>
+        <div class="container text-center pt-3 info">Numero Batiment</div>
+        <div class="container text-center pt-3 info">Type Chambre</div>
+        <div class="container text-center pt-3 info">Action</div>
+    </div>
+    <div class=" container zone-liste">
+        <div class="row liste">
+            {% for Chambre in Chambres %}
+                <div class="col-md-12 mt-3">
+                    <div class="container text-center info"> {{ Chambre.numchambre }} </div>
+                    <div class="container text-center info"> {{ Chambre.numbat }} </div>
+                    <div class="container text-center info"> {{ Chambre.typechambre }} </div>
+                    <div class="container text-center info">
+                        <a class="btn btn-primary" href="{{ path('updateroom', {'id': Chambre.id}) }}">Update</a>
+                        <a class="btn btn-danger" href="{{ path('deleteroom', {'id': Chambre.id}) }} "onclick="return confirm ('delete???');">Delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="w-100 pt-4 d-flex justify-content-center">
+                {{ knp_pagination_render(Chambres) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

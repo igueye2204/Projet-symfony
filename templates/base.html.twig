@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
+
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container-fluid" id="container-fluid">
+            <div class="row w-100">
+                <div class="col-md-12 text-center bienvenu">Bienvenue sur la plateforme d’allocation de chambres</div>
+                <div class="col-md-12 menu mt-3">
+                    <a href="{{ path('addstudent') }}">Enregistrer Etudiant<span class="sr-only">(current)</span></a>
+                    <a href="{{ path('addroom') }}">Enregistrer Chambre</a>
+                    <a href="{{ path('liststudent') }}">Liste Etudiants</a>
+                    <a href="{{ path('listroom') }}">Liste Chambres</a>
+                    <form class="form-inline zone-search">
+                        <input class="search pl-2" type="text" placeholder="Search">
+                        <button class="btn search-btn my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-3 interface">
+            {% block body %}{% endblock %}
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+
+        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

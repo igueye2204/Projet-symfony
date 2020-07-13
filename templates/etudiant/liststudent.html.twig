@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <table id="dataTable" class="display" style="color: var(--bleu-marine );">
+            <thead>
+                <tr>
+                    <th class="text-center">Matricule</th>
+                    <th class="text-center">Prenom</th>
+                    <th class="text-center">Nom</th>
+                    <th class="text-center">Date de naissance</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Departement</th>
+                    <th class="text-center">Type</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Etudiant in Etudiants %}
+                <tr>
+                    <td class="text-center">{{Etudiant.matricule}}</td>
+                    <td class="text-center">{{Etudiant.prenom}}</td>
+                    <td class="text-center">{{Etudiant.nom}}</td>
+                    <td class="text-center">{{Etudiant.datenaissance| date('d-m-Y')}}</td>
+                    <td class="text-center">{{Etudiant.email}}</td>
+                    <td class="text-center">{{Etudiant.departement}}</td>
+                    <td class="text-center">{{Etudiant.typeetudiant}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('updatestudent', {'id': Etudiant.id}) }}">Update</a>
+                        <a class="btn btn-danger" href="{{ path('deletestudent', {'id': Etudiant.id}) }}"onclick="return confirm ('delete???');">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+
+

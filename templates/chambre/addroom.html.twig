@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container d-flex justify-content-center">
+        {{ form_start(form) }}
+            <div class="row d-flex justify-content-center">
+                <div class="form-group mt-3 col-md-12 room">
+                    <input id="nbrfield" type="hidden" value="{{ nbrField }}">
+                {{ form_row(form.numchambre, { 'attr': { 'placeholder': 'numero chambre'}}) }}
+                </div>
+                <div class="form-group mt-3 col-md-12 room">
+                    {{ form_row(form.numbat, { 'attr': 
+                        { 'placeholder': 'numero batiment' }
+                    }) }}
+                </div>
+                <div class="form-group mt-3 col-md-12 room">
+                    {{ form_row(form.typechambre, { 'label': false }) }}
+                </div>
+                <div class="form-group mt-3 col-md-12 room">
+                    <button type="submit" name="enregistrer" id="enregistrer" class="btn mt-5 regist">Enregistrer</button>
+                </div>
+            </div>
+        {{ form_end(form) }}
+    </div>
+    {# <form method="POST" action="" class="container d-flex justify-content-center roomregister">
+                <div class="row">      
+                    <div class="form-group mt-3 col-md-12 room">
+                        <input disabled="disabled" type="text" class="pl-3" name="numchambre" id="batiment" placeholder="Numero Chambre">
+                    </div>
+                    <div class="form-group mt-3 col-md-12 room">
+                        <input type="text" class="pl-3" name="numBat" id="numBat" placeholder="numero batiment">
+                        <small class="error-form" id="error_numero"></small>
+                    </div>
+                    <div class="form-group mt-3 col-md-12 room">
+                        <select name="typeChambre" class="pl-3" id="type">
+                            <option value="" selected></option>
+                            <option name="individuel" value="individuel" id="individuel">Individuel</option>
+                            <option name="a_deux" value="a_deux" id="a_deux">A deux</option>
+                        </select>
+                    </div>
+                    <div class="form-group mt-3 col-md-12 room">
+                        <button type="submit" name="enregistrer" id="enregistrer" class="btn regist">Enregistrer</button>
+                    </div>
+                </div>
+    </form> #}
+
+{% endblock %}
